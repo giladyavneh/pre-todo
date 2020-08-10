@@ -307,6 +307,13 @@ function cleanCompleted() {
 
 //function that delete an element
 function deleteElement(elem) {
+  let list = document.querySelector("#ViewSection");
+  let listItems = list.querySelectorAll("div");
+  for (let i = 0; i < listItems.length; i++) {
+    let task = listItems[i].querySelector("span");
+    task.innerHTML = task.innerText;
+  }
+  document.getElementById("searchInput").value=""
   elem.closest("section").id === "ViewSection"
     ? delFromView(elem)
     : removeFromLocalStorage("completedTasks", elem);
